@@ -1,24 +1,13 @@
 import processing.serial.*;
-import cc.arduino.*;
-Arduino arduino;
 
 void setup(){
   size(400,400);
-  arduino = new Arduino(this, Arduino.list()[1], 57600); //change the [0] to a [1] or [2] etc. if your program doesn't work
 }
 void draw(){
-  int y = arduino.analogRead(5);
-  if(y>260){
-    y=260;
-  }
-  if(y < 30){
-    background(255,0,0);
-  } else {
-    background(2,232,230);
-  }
+  background(2,232,230);
   drawBody(200,200);
-  drawFace(200,300-y/2);
-  drawMouse(200-y,350);
+  drawFace(200,200);
+  drawMouse(50,350);
 }
 private void drawFace(int posX, int posY){
   fill(0,0,0);
